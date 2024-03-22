@@ -1,6 +1,6 @@
 {
   "name": "@nick12003/create-nick-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is a CLI tool to create a new project with my favorite configurations.",
   "bin": {
     "create-nick-app": "./dist/index.js"

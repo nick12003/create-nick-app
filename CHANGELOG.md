@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/nick12003/create-nick-app/compare/v1.0.0...v1.0.1) (2024-03-22)
+
+
+### Bug Fixes
+
+* gh ac ([ee497b1](https://github.com/nick12003/create-nick-app/commit/ee497b1ec7834335fa5dc7b04cc493b48007b2dd))
+
 ## 1.0.0 (2024-03-22)
 
 
