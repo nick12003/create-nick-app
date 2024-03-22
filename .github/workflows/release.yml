@@ -27,10 +27,13 @@ jobs:
       - name: Setup Node & pnpm
         if: ${{ steps.release.outputs.release_created }}
         uses: ./.github/workflows/install
-      - run: pnpm publish --access public --no-git-checks
+      - name: Build and publish
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          pnpm build
+          pnpm publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-        if: ${{ steps.release.outputs.release_created }}
       - name: release info
         env:
           realese-output: ${{ toJson(steps.release.outputs) }}
