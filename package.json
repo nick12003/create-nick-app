@@ -1,0 +1,46 @@
+{
+  "name": "@nick12003/create-nick-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node src/index.ts"
+  },
+  "keywords": [],
+  "author": "Nick Chen <a0958577500@gmail.com> (https://github.com/nick12003)",
+  "homepage": "https://github.com/nick12003/create-nick-app/",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
+    "@nick12003/eslint-config-nick": "^1.0.1",
+    "@types/cross-spawn": "^6.0.6",
+    "@types/node": "^20.11.30",
+    "@types/prompts": "^2.4.9",
+    "@types/validate-npm-package-name": "^4.0.2",
+    "commander": "^12.0.0",
+    "cross-spawn": "^7.0.3",
+    "eslint": "^8.57.0",
+    "fast-glob": "^3.3.2",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "picocolors": "^1.0.0",
+    "prettier": "^3.2.5",
+    "prompts": "^2.4.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3",
+    "validate-npm-package-name": "^5.0.0"
+  },
+  "packageManager": "pnpm@8.10.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nick12003/create-nick-app.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/nick12003/create-nick-app/issues"
+  }
+}

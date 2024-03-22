@@ -1,0 +1,35 @@
+version: '3.4'
+
+services:
+  docs:
+    container_name: turbo-docs
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - APP_NAME=docs
+    image: turbo-docs-image
+    ports:
+      - '3000:3000'
+    restart: always
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: 10m
+        max-file: '20'
+  web:
+    container_name: turbo-web
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - APP_NAME=web
+    image: turbo-web-image
+    ports:
+      - '3001:3000'
+    restart: always
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: 10m
+        max-file: '20'

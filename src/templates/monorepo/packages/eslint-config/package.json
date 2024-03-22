@@ -1,0 +1,19 @@
+{
+  "name": "@repo/eslint-config",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "next.js",
+    "react.js",
+    "typescript.js",
+    "react-typescript.js",
+    "stroybook.js"
+  ],
+  "devDependencies": {
+    "@nick12003/eslint-config-nick": "^1.0.1",
+    "eslint-config-next": "^14.1.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-storybook": "^0.8.0",
+    "typescript": "^5.4.2"
+  }
+}
