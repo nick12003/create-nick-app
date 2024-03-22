@@ -6,6 +6,7 @@
 import { program } from 'commander';
 import fs from 'fs';
 import path from 'path';
+import { green } from 'picocolors';
 import prompts from 'prompts';
 
 import packageJson from '../package.json';
@@ -13,13 +14,23 @@ import { createApp } from './createApp';
 import { isFolderEmpty } from './utils/isFolderEmpty';
 import { validateNpmName } from './utils/validatePkg';
 
-program.name(packageJson.name).description(packageJson.description).version(packageJson.version);
+let projectPath: string = '';
 
-program.parse();
+program
+  .name(packageJson.name)
+  .description(packageJson.description)
+  .version(packageJson.version)
+  .usage(`${green('<project-directory>')}`)
+  .arguments('[project-directory]')
+  .action((name) => {
+    projectPath = name;
+  })
+  .allowExcessArguments()
+  .parse();
 
 (async () => {
-  const res = await prompts([
-    {
+  if (!projectPath) {
+    const res = await prompts({
       type: 'text',
       name: 'path',
       message: 'What is your project named?',
@@ -31,18 +42,22 @@ program.parse();
         }
         return `Invalid project name: ${validation.problems[0]}`;
       },
-    },
-    {
-      type: 'toggle',
-      name: 'isMonorepo',
-      message: 'Would you like to use Monorepo?',
-      initial: 'No',
-      inactive: 'No',
-      active: 'Yes',
-    },
-  ]);
+    });
+    if (typeof res.path === 'string') {
+      projectPath = res.path.trim();
+    }
+  }
 
-  const resolvedProjectPath = path.resolve(res.path);
+  const res = await prompts({
+    type: 'toggle',
+    name: 'isMonorepo',
+    message: 'Would you like to use Monorepo?',
+    initial: 'No',
+    inactive: 'No',
+    active: 'Yes',
+  });
+
+  const resolvedProjectPath = path.resolve(projectPath);
 
   const root = path.resolve(resolvedProjectPath);
   const appName = path.basename(root);
@@ -54,6 +69,7 @@ program.parse();
 
   await createApp({
     appPath: resolvedProjectPath,
+    appName,
     isMonorepo: res.isMonorepo,
   });
 })();

@@ -20,12 +20,20 @@ export const installTemplate = async ({
     cwd: templatePath,
     rename(name) {
       switch (name) {
+        case 'dockerignore':
         case 'gitignore':
+        case 'lintstagedrc':
+        case 'npmrc':
+        case 'nvmrc':
+        case 'prettierrc':
         case 'eslintrc.js': {
           return `.${name}`;
         }
-        case '.tsconfig.json': {
+        case 'ttsconfig.json': {
           return 'tsconfig.json';
+        }
+        case 'ppackage.json': {
+          return 'package.json';
         }
         // README.md is ignored by webpack-asset-relocator-loader used by ncc:
         // https://github.com/vercel/webpack-asset-relocator-loader/blob/e9308683d47ff507253e37c9bcbb99474603192b/src/asset-relocator.js#L227
