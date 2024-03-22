@@ -12,6 +12,7 @@
     "dev": "ts-node src/index.ts",
     "dev:build": "ncc build ./src/index.ts -w -o dist/",
     "build": "ncc build ./src/index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
+    "check": "tsc --noEmit",
     "prepare": "husky"
   },
   "keywords": [],
