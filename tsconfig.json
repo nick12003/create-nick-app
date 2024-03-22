@@ -8,7 +8,8 @@
     "skipLibCheck": false
   },
   "exclude": [
-    "templates",
-    "dist"
+    "templates/default",
+    "templates/monorepo",
+    "dist",
   ]
 }

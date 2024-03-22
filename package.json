@@ -5,7 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node src/index.ts"
+    "dev": "ts-node src/index.ts",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "Nick Chen <a0958577500@gmail.com> (https://github.com/nick12003)",
