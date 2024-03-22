@@ -1,0 +1,22 @@
+name: 設定與安裝
+
+description: 設定 node.js 版本並安裝 pnpm
+
+runs:
+  using: composite
+  steps:
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v3
+      with:
+        version: 8
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: '.nvmrc'
+        cache: pnpm
+        registry-url: 'https://registry.npmjs.org'
+    - name: Install Dependencies
+      shell: bash
+      run: |
+        pnpm -v
+        pnpm install
